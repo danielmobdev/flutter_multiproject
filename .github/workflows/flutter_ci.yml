@@ -10,7 +10,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
@@ -20,7 +21,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.27.1'  # Specify the Flutter version you're using
+          flutter-version: '3.27.1'
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -29,19 +30,3 @@ jobs:
       # Step 4: Build APK for Android
       - name: Build APK for Android
         run: flutter build apk --release
-
-      # Debugging Firebase CLI
-      - name: Debug Firebase CLI
-        run: firebase --version
-
-      # Step 5: Test Firebase Deployment
-      - name: Test Firebase Deployment
-        run: firebase apps:list --token ${{ secrets.FIREBASE_TOKEN }}
-
-      # Step 6: Deploy to Firebase App Distribution
-      - name: Deploy to Firebase App Distribution
-        run: |
-          firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
-            --app 1:740071393518:android:0a9c518d74bd0987f14bff \
-            --groups "testers" \
-            --token ${{ secrets.FIREBASE_TOKEN }}
