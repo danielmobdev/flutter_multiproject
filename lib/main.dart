@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Multi-Tenant App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('GIT TEST'),
+          title: Text('GIT TEST DANIEL'),
         ),
       ),
     );
