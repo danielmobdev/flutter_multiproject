@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Multi-Tenant App',
       home: Scaffold(
-        appBar: AppBar(title: Text('Hello Multi-Tenant')),
-        body: Center(child: Text('Hello from Flutter!')),
+        appBar: AppBar(
+          title: Text('GIT TEST'),
+        ),
       ),
     );
   }
